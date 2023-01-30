@@ -40,38 +40,3 @@ with open('hh.json', 'w', encoding='utf-8') as file:
 
 
 pprint(data_company)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# company = soup.find_all(attrs={'data-qa': "vacancy-serp__vacancy-employer"})
-# for c in company:
-#     data = c.text
-#     print(data)
-#     data_company.append({'company': data})
-
-
