@@ -25,9 +25,10 @@ soup = BeautifulSoup(response_text, features='lxml')
 def find_link(soup):
     link = soup.find_all(class_="serp-item__title")
     for l in link:
+        count = 0
         LH = l['href']
-        print(LH)
-
+        data_company[count]['link'] =LH
+        count += 1
 
 def find_sity(soup):
     sity = soup.find_all(attrs={'class': "bloko-text", 'data-qa': "vacancy-serp__vacancy-address"})
@@ -46,21 +47,12 @@ def find_company(soup):
     for c in company:
         print(c.text)
 
+
+
     with open('hh.json', 'w') as file:
         data = json.load()
 
 #=======================================================================================================================
-
-link = soup.find_all(class_="serp-item__title")
-sity = soup.find_all(attrs={'class': "bloko-text", 'data-qa': "vacancy-serp__vacancy-address"})
-for l in link:
-    LH = l['href']
-    for s in sity:
-        data_company.append({
-            "link" : LH,
-            'sity' : s.text
-        })
-    break
 
 pprint(data_company)
 
